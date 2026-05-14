@@ -1,3 +1,9 @@
+//wrong logic works only for when it is sorted like
+//for eg[8,9,10,1,4,5] and fails for [8,9,10,1,4,1]
+
+//and if the array is already sorted then it will give wrong result as arr[n] does not exist
+//and same for if the pivot elemnt is at oth index
+
 #include<iostream>
 using namespace std;
 
