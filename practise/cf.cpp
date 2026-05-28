@@ -1,22 +1,29 @@
+//236A boy or girl
+
+
 #include<iostream>
 #include<vector>
+#include<set>   
 using namespace std;
- 
 
-void weight(string s){
-    
-}
-
-void cal(string s){
-    int sum=0;
-    for(int i=0;i<s.length();i++){
-        sum=sum+s[i];
-    }
-}
 
 int main(){
-    int arr[13]={1,2,3,4,5,6,7,8,9,10,11,12,13};
-    string s1="aaab";
-    string s2="aaab";   
+
+    string s;
+    cin>>s;
+
+    set<int> charachter;
+
+    for(int i=0;i<s.length();i++){
+        charachter.insert(s[i]);
+    }
+
+
+    if(charachter.size()%2==0){
+        cout<<"CHAT WITH HER";
+    }
+    else{
+        cout<<"IGNORE HER";
+    }
    return 0;
 }
