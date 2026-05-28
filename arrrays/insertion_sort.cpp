@@ -1,32 +1,30 @@
 #include<iostream>
 using namespace std;
+#include<vector>
 
-int main(){
-    int arr[7]={10,1,7,4,8,2,11};
-    int n=7;
-
-    //we assume first element is already sorted
+void insertion_sort(vector<int>&v){
+    int n=v.size();
     for(int i=1;i<n;i++){
-        int temp=arr[i];
-        int j=i-1;
+        int j=i;
+        while(j>0){
+            if(v[j-1]>v[j]){
+                int temp=v[j-1];
+                v[j-1]=v[j];
+                v[j]=temp;
 
-        for(;j>=0;j--){
-
-            //shift
-            if(arr[j]>temp){
-                arr[j+1]=arr[j];
+                j--;
             }
             else{
                 break;
             }
         }
-        //intially j=0;
-        //for yhe first iteration here j becomes -1 since it is j--
-        //and it doesnt satisfy the condition therefore it exits the loop
-        //and j remains -1 which goes to arr[j+1]=temp;
-
-        arr[j+1]=temp;
     }
+}
 
+
+int main(){
+    vector<int> v = {5, 3, 8, 1, 2};
+    insertion_sort(v);
+    for (int x : v) cout << x << " ";
     return 0;
 }
