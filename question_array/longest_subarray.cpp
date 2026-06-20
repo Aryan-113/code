@@ -14,7 +14,7 @@ int brute(vector<int> v,int k){
     int maximum=-1;
     for(int i=0;i<v.size();i++){
 
-        sum=sum+v[left];
+        sum=sum+v[i];
 
         while(sum>k){
             sum-=v[left];
