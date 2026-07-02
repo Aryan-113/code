@@ -2,34 +2,22 @@
 #include<vector>
 using namespace std;
  
-//to find particular element in the pascals triangle
+//giving a particular element in the pascals triangle
+int prt(int row,int col){
+    //the element is given by using the PNC formula
+    //nCr where nis row-1 and r is col-1
 
-int ncr(int n,int r){
-   int res=1;
+    int ans=1;
+    for(int i=0;i<col-1;i++){
+        ans=ans*(row-1-i)/(i+1);
+    }
 
-   for(int i=0;i<r;i++){
-      res=res*(n-i);
-      res=res/(i+1);
-   }
-
-   return res;
+    return ans;
 }
 
-int val(int n,int r){
-   //the forrmula is nCr where n is row-1 and r is column -1
-   int ans=ncr(n-1,r-1);
-   return ans;
-}
-
-
-vector<vector<int>> generate(int num){
-   vector<vector<int>> ans;
-
-}
+//print any row
 
 int main(){
-   int num;
-   cin>>num;
-   
+    cout<<prt(5,3);
    return 0;
 }
