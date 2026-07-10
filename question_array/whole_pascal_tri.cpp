@@ -2,7 +2,6 @@
 #include<vector>
 using namespace std;
  
-//giving a particular element in the pascals triangle
 int prt(int row, int col) {
     int n = row - 1;
     int ans = 1;
@@ -11,23 +10,7 @@ int prt(int row, int col) {
     }
     return ans;
 }
-
-//print any row of the pascal triangle
-//1-->   1
-//2--> 1   1
-//3__>1  2   1
-//4-->1 3  3  1
-//5--? 1 4 6 4 1
-vector<int> any_row(int row){
-   
-    vector<int> temp;
-    for(int i=0;i<row;i++){
-        temp.push_back(prt(row,i));
-    }
-
-    return temp;
-}
-
+//brute force time is approx O(n^3)
 //printing entie pascals triangle
 vector<vector<int>> generate(int numrows){
     vector<vector<int>> temp;
@@ -44,12 +27,25 @@ vector<vector<int>> generate(int numrows){
     return temp;
 }
 
+//optimal solution O(n2)
+
+vector<vector<int>> opt(int numrows){
+    vector<vector<int>> temp;
+
+    for(int i=0;i<numrows;i++){
+        vector<int> row(i+1);
+        row[0]=1;
+        for(int j=1;j<=i;j++){
+            row[j]=(int)(long long)row[j-1]*(i-j+1)/j;
+        }
+
+        temp.push_back(row);
+    }
+
+    return temp;
+}
 
 int main(){
-    //cout<<prt(5,3);
-    vector<int> ans=any_row(4);
-    for(int val:ans){
-        cout<<val<<" ";
-    }
+ 
    return 0;
 }

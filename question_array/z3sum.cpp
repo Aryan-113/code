@@ -1,0 +1,49 @@
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+#include<algorithm>
+using namespace std;
+ 
+//revision of 2 sum
+vector<int> two(vector<int>&nums,int target){
+    int n=nums.size();
+
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(nums[i]+nums[j]==target){
+                return {i,j};
+            }
+        }
+    }
+    return {-1,-1};
+}
+
+vector<int> opt(vector<int>&nums,int target){
+
+    unordered_map<int,int> mpp;
+
+    for(int i=0;i<nums.size();i++){
+        int ans=target-nums[i];
+
+        if(mpp.find(ans)!=mpp.end()){
+            return {mpp[ans],i};
+        }
+        else{
+            mpp[nums[i]]=i;
+        }
+    }
+
+    return {};
+}
+
+int main(){
+   vector<int> nums={3,2,4};
+   int target=6;
+
+   vector<int>temp=two(nums,target);
+
+   for(int val:temp){
+    cout<<val<<" ";
+   }
+   return 0;
+}
