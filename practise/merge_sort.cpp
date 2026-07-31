@@ -42,7 +42,7 @@ void mergeSort(vector<int>&nums,int s,int e){
     }
 
     int mid=(s+e)/2;
-    mergeSort(nums,s,mid);xx
+    mergeSort(nums,s,mid);
     mergeSort(nums,mid+1,e);
     merge(nums,s,mid,e);
 }

@@ -28,13 +28,15 @@ Node* convertArrtoLL(vector<int> &arr){
     for(int i=1;i<arr.size();i++){
         Node*temp=new Node(arr[i]);
         mover->next=temp;
-        mover=temp;
+        mover=temp; //or we can write mover->next
     }
 
     return head;
 }
 
 int main(){
- 
+   vector<int> nums={2,1,3,8};
+   Node* head=convertArrtoLL(nums);
+    cout<<head->data;
    return 0;
 }
